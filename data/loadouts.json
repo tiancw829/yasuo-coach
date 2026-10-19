@@ -1,0 +1,155 @@
+{
+  "revision": "loadouts-2026-10-19.2",
+  "patch": "16.20.1",
+  "basis": "装备与符文效果已对照 16.20.1 官方数据；搭配按换血条件作经验选择，尚无当前版本对局统计支持。致命节奏为常规对拼方案，迅捷步法为难以接近持续攻击时的承压备选。多兰弓没有生命值，不能把攻速收益等同于对所有英雄都更安全。",
+  "default": {
+    "starter": "1086", "alternative": "1054",
+    "starterReason": "通用主动换血方案：多兰之弓提供攻击力、攻速与少量全能吸血，适合能借兵线接近并持续攻击的情况。该对手尚未精修，这不是专属克制结论。",
+    "alternativeReason": "如果难以接近、主要目标是顶住反复消耗补刀，改用多兰之盾。出门两套择一，不一起购买。",
+    "runeReason": "致命节奏作为亚索常规对拼起点：能连续攻击敌方英雄时逐步叠层，满层还有额外伤害；短暂碰一下就撤的换血不能默认吃满收益。",
+    "defensiveRune": "SecondWind",
+    "defensiveReason": "通用承压选择复苏之风；若对手主要靠一次连招而难以提前点掉骸骨，可改骸骨镀层。"
+  },
+  "matchups": {
+    "Ahri": {
+      "starter":"1086", "alternative":"1054",
+      "starterReason":"常规以多兰弓＋两瓶红药出门：能躲或挡魅惑、借兵线接近时，用攻速争取更多攻击机会。狐狸是远程英雄，并不意味着自动改盾。",
+      "alternativeReason":"若常被 Q 反复耗血、很难接近，多兰盾＋一瓶红药更适合先稳住补刀；不必同时放弃致命节奏。",
+      "runeReason":"魅惑落空后有机会借兵线持续攻击，常规选择致命节奏；她仍有控制或位移时不要为叠满而强追。",
+      "defensiveRune":"SecondWind", "defensiveReason":"复苏之风应对反复 Q 和普攻消耗；骸骨容易被提前点掉。"
+    },
+    "Zed": {
+      "starter":"1086", "alternative":"1055",
+      "starterReason":"能规避影子双 Q 时，多兰弓＋两瓶红药用于争线与持续换血；在他交 W 后把攻速转化成攻击机会。",
+      "alternativeReason":"担心一轮爆发而需要额外生命值时，改多兰之刃＋一瓶红药；若问题是反复吃 Q，考虑多兰盾，而非硬追攻击力。",
+      "runeReason":"致命节奏用于劫关键技能交掉后的持续攻击；先躲双 Q，不为叠层吃完整连招。",
+      "defensiveRune":"BonePlating", "defensiveReason":"骸骨镀层用于削减适用的连续伤害；被单 Q 提前打掉时不要仍按有骸骨对拼。"
+    },
+    "Yone": {
+      "starter":"1086", "alternative":"1055",
+      "starterReason":"多兰弓＋两瓶红药提供前期攻速，适合围绕双方 Q 层数争线和持续攻击；不能因此顶着他的护盾硬拼。",
+      "alternativeReason":"更看重单轮对拼的生命值容错时用多兰之刃＋一瓶红药，牺牲弓的攻速换取血量。",
+      "runeReason":"能持续互相攻击的近战对位优先考虑致命节奏；永恩 E 阶段和 Q3 到来时仍需要拉开。",
+      "defensiveRune":"BonePlating", "defensiveReason":"骸骨用于连段对拼，注意被 W 或短 Q 提前打掉后的空档。"
+    },
+    "Akali": {
+      "starter":"1054", "alternative":"1086",
+      "starterReason":"经常被 Q 接被动普攻消耗、烟幕又打断你的输出时，默认多兰盾＋一瓶红药提高补刀容错。",
+      "alternativeReason":"能用走位避开 Q，并在烟幕交掉后主动争线时，可改多兰弓＋两瓶红药；这是进攻备选，烟幕内不能指望持续吸血。",
+      "runeReason":"致命节奏用于烟幕和 E 空档里的持续攻击；她退进烟幕时不要为了维持层数盲追。",
+      "defensiveRune":"SecondWind", "defensiveReason":"复苏之风处理反复的 Q 与被动消耗，避免把容易被点掉的骸骨当成每轮都可用。"
+    },
+    "Fizz": {
+      "starter":"1055", "alternative":"1086",
+      "starterReason":"默认多兰之刃＋一瓶红药，生命值帮助承接小鱼人的一轮突进爆发；这是一套保留攻击能力的容错选择。",
+      "alternativeReason":"能稳定利用前期补刀距离压他、躲开关键技能时，改多兰弓＋两瓶红药争主动；弓没有额外生命值，不能照搬刃的承伤判断。",
+      "runeReason":"致命节奏用于小鱼人 E 落地后的持续攻击；他不可选取期间无法靠继续攻击叠层。",
+      "defensiveRune":"BonePlating", "defensiveReason":"骸骨镀层针对适用的近身连段，先确认它未被试探攻击触发。"
+    },
+    "Annie": {
+      "starter":"1055", "alternative":"1086",
+      "starterReason":"默认多兰之刃＋一瓶红药，为面对稳定控制接爆发留出生命值；有晕时不能仅凭风墙安全贴脸。",
+      "alternativeReason":"能控制她被动层数、在无晕窗口主动压补刀时可用多兰弓＋两瓶红药；经常被长手普攻消耗则优先考虑多兰盾。",
+      "runeReason":"致命节奏适合安妮控制交掉后的持续攻击，不代表可以顶着 W 或 R 眩晕叠层。",
+      "defensiveRune":"SecondWind", "defensiveReason":"复苏之风处理长手反复消耗；安妮能用普攻提前打掉骸骨。"
+    },
+    "Lux": {
+      "starter":"1086", "alternative":"1054",
+      "starterReason":"能够躲 Q 并借兵线接近时，用多兰弓＋两瓶红药主动争线；把 Q 落空后的时间转为攻击机会。",
+      "alternativeReason":"若 E 持续压低血线、每次靠近都被消耗，改多兰盾＋一瓶红药稳住补刀。",
+      "runeReason":"常规致命节奏，在 Q 空档中尝试持续攻击；被 E 减速或缺撤退兵线时及时结束换血。",
+      "defensiveRune":"SecondWind", "defensiveReason":"复苏之风应对 E 与普攻的反复消耗。"
+    },
+    "Syndra": {
+      "starter":"1086", "alternative":"1054",
+      "starterReason":"有把握错开 Q 落点和推球直线时，多兰弓＋两瓶红药用于争线；E 交掉后再兑现攻速优势。",
+      "alternativeReason":"若 Q 消耗使你频繁被迫放弃补刀，多兰盾＋一瓶红药提高血线容错。",
+      "runeReason":"常规致命节奏用于辛德拉 E 交掉后的延长换血；不能在她仍握控制时硬追叠层。",
+      "defensiveRune":"SecondWind", "defensiveReason":"复苏之风处理频繁 Q 消耗，防止骸骨被轻易提前触发。"
+    },
+    "Orianna": {
+      "starter":"1054", "alternative":"1086",
+      "starterReason":"面对球与普攻持续压补刀，默认多兰盾＋一瓶红药降低反复消耗的压力。",
+      "alternativeReason":"你能绕开球、稳定从另一侧接近时，多兰弓＋两瓶红药可用于主动抢线，不必把多兰盾当成固定答案。",
+      "runeReason":"即便出盾，也可保留致命节奏作为接近后的对拼基石；始终摸不到她时再考虑迅捷步法。",
+      "defensiveRune":"SecondWind", "defensiveReason":"复苏之风应对持续普攻和球的消耗。"
+    },
+    "Viktor": {
+      "starter":"1054", "alternative":"1086",
+      "starterReason":"频繁承受 E 和 Q 后续攻击时，默认多兰盾＋一瓶红药，先保证能补刀。",
+      "alternativeReason":"能躲 E 且对方交技能后可稳定接近时，多兰弓＋两瓶红药用于争主动；不要站在重力场里硬换。",
+      "runeReason":"致命节奏用于他清线或控制交掉后的持续攻击；不能为了叠层吃重力场和余震。",
+      "defensiveRune":"SecondWind", "defensiveReason":"复苏之风应对反复 E 与 Q 消耗，提供稳定的对线恢复思路。"
+    },
+    "Leblanc": {
+      "starter":"1054", "alternative":"1086",
+      "starterReason":"妖姬可反复消耗并用 W 返回，默认多兰盾＋一瓶红药，避免每轮都换不到完整输出。",
+      "alternativeReason":"能挡链子并通过兵线压住她的返回位置时，可改多兰弓＋两瓶红药主动争线；没有生命值加成，要尊重爆发。",
+      "runeReason":"致命节奏保留她失去安全返回手段后的对拼能力；不要以为每次 W 踩上来都允许你叠满。",
+      "defensiveRune":"SecondWind", "defensiveReason":"复苏之风处理反复 Q、普攻和短换血；她容易提前触发骸骨。"
+    },
+    "Sylas": {
+      "starter":"1086", "alternative":"1055",
+      "starterReason":"多兰弓＋两瓶红药用于二段 E 落空后的持续攻击与争线；有攻速也不能忽视他的 W 回复。",
+      "alternativeReason":"需要更多生命值承受近身连段时选多兰之刃＋一瓶红药，尤其在自己经常吃 E 的情况下。",
+      "runeReason":"常规致命节奏，躲开二段 E 后有持续攻击的空间；不要把残血塞拉斯当成无反打能力。",
+      "defensiveRune":"BonePlating", "defensiveReason":"骸骨用于防适用的 E 接近身连段；注意被 Q 提前打掉的情况。"
+    },
+    "Galio": {
+      "starter":"1086", "alternative":"1054",
+      "starterReason":"能在加里奥 E、W 交掉后持续攻击时，多兰弓＋两瓶红药用于压补刀和争线。",
+      "alternativeReason":"若主要承受 Q 消耗而找不到近身机会，选多兰盾＋一瓶红药先稳住补刀。",
+      "runeReason":"致命节奏适合他控制交掉后的持续交战；W 蓄嘲讽时先退出范围，不为叠层留在圈内。",
+      "defensiveRune":"SecondWind", "defensiveReason":"复苏之风应对 Q 反复消耗；能避免 Q 试探且主要担心连控时，可考虑骸骨。"
+    },
+    "Irelia": {
+      "starter":"1086", "alternative":"1055",
+      "starterReason":"多兰弓＋两瓶红药用于围绕兵线争主动；只有她被动与标记条件允许时才延长攻击。",
+      "alternativeReason":"需要额外生命值承接贴身对拼时改多兰之刃＋一瓶红药。装备无法抵消她满被动和残血兵链的优势。",
+      "runeReason":"常规致命节奏用于有条件的持续对拼；不要为了叠层无视她被动、残血兵和 E 标记。",
+      "defensiveRune":"BonePlating", "defensiveReason":"骸骨用于削减适用的近身连段，被提前打掉后重新评估是否能拼。"
+    },
+    "Talon": {
+      "starter":"1086", "alternative":"1055",
+      "starterReason":"能避开 W 回程时，多兰弓＋两瓶红药用于争线并在他技能空档持续攻击。",
+      "alternativeReason":"怕一轮被动爆发时用多兰之刃＋一瓶红药增加血量；反复吃 W 消耗则考虑多兰盾。",
+      "runeReason":"致命节奏适合他 W 交掉后主动持续攻击；先避免被动连招，不要抢着叠层。",
+      "defensiveRune":"BonePlating", "defensiveReason":"骸骨用于连段防御，但会被单次试探技能提前触发。"
+    },
+    "Anivia": {
+      "starter":"1086", "alternative":"1054",
+      "starterReason":"能躲或挡 Q 时，多兰弓＋两瓶红药用于接近后的持续攻击；必须留下处理冰墙的退路。",
+      "alternativeReason":"若反复吃普攻、Q 或强化 E 而无法接近，换多兰盾＋一瓶红药稳住补刀，不赌击杀蛋。",
+      "runeReason":"致命节奏在 Q 空档里提供持续攻击收益；不要为了维持层数越塔追被动蛋。",
+      "defensiveRune":"SecondWind", "defensiveReason":"复苏之风用于承受长手消耗；先躲控制，不能用回复硬扛一套。"
+    },
+    "Cassiopeia": {
+      "starter":"1054", "alternative":"1086",
+      "starterReason":"默认多兰盾＋一瓶红药，先稳定躲 Q 和补刀；蛇女能用中毒与毒牙惩罚无条件接近。",
+      "alternativeReason":"能稳定躲 Q 且不踩 W 时，可以多兰弓＋两瓶红药争主动；中毒后不要为了弓和致命节奏硬站撸。",
+      "runeReason":"常规致命节奏只在躲 Q、有退路的条件下兑现；若始终无法持续攻击，可改迅捷步法稳线。",
+      "defensiveRune":"SecondWind", "defensiveReason":"复苏之风缓解消耗压力，不替代躲 Q 或走出 W。"
+    },
+    "Malzahar": {
+      "starter":"1086", "alternative":"1054",
+      "starterReason":"多兰弓＋两瓶红药用于处理兵线与虫群，破被动盾后再考虑持续攻击英雄。",
+      "alternativeReason":"若经常被 E 从小兵传染且难以换血，多兰盾＋一瓶红药有助于稳住；六级后仍不能无视压制。",
+      "runeReason":"致命节奏保留破盾后接近的对拼能力；只攻击虫群和小兵不能按攻击英雄的叠层收益计算。",
+      "defensiveRune":"SecondWind", "defensiveReason":"复苏之风用于反复消耗，不能处理 R 压制本身。"
+    },
+    "Veigar": {
+      "starter":"1086", "alternative":"1054",
+      "starterReason":"多兰弓＋两瓶红药用于前期争线；小法 E 空了后再持续攻击，避免穿过笼子边缘。",
+      "alternativeReason":"如果频繁被 Q 和普攻压血线、无法主动接近，可用多兰盾＋一瓶红药先稳定发育。",
+      "runeReason":"常规致命节奏利用 E 空档持续输出；被圈住时优先躲 W，不为叠层强行穿边。",
+      "defensiveRune":"SecondWind", "defensiveReason":"复苏之风缓解 Q 与普攻消耗；大招爆发仍靠血线和距离管理。"
+    },
+    "Aurora": {
+      "starter":"1086", "alternative":"1054",
+      "starterReason":"能错开 Q 直线、在她退隐后压兵线时，多兰弓＋两瓶红药作为主动出门方案。",
+      "alternativeReason":"如果频繁被 Q 标记后回收消耗、很难摸到她，多兰盾＋一瓶红药更适合稳住。",
+      "runeReason":"致命节奏用于她机动技能交掉后的持续攻击；隐身或拉开距离后不要盲追维持层数。",
+      "defensiveRune":"SecondWind", "defensiveReason":"复苏之风应对长手反复消耗，避免把骸骨视为随时可用。"
+    }
+  }
+}
