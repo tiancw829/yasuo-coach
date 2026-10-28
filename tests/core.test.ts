@@ -85,8 +85,25 @@ test('AI sends context and history, uses structured schema, and caches identical
   let calls=0;let body:any;const coach=new Coach((async(_url,init)=>{calls++;body=JSON.parse(init!.body as string);return completion();}) as typeof fetch);
   const history=[{role:'user',content:'如何补刀？'}];const a=await coach.analyze(settings,ahri,'稳住发育','如何换血？',history);assert.equal(a.cached,false);assert.equal(body.response_format.type,'json_schema');assert.match(body.messages[1].content,/稳住发育/);assert.match(body.messages[1].content,/如何补刀/);
   assert.equal(body.response_format.json_schema.schema.properties.actions.maxItems,5);assert.equal(body.stream,false);
+  assert.ok(body.messages.at(-1).content.startsWith('当前问题（本次回答的重点）：\n如何换血？\n'));assert.match(body.messages.at(-1).content,/只返回一个 JSON 对象/);
+  assert.match(body.messages[0].content,/优先直接回答当前问题/);
   assert.equal((await coach.analyze(settings,ahri,'稳住发育','如何换血？',history)).cached,true);assert.equal(calls,1);
   await coach.analyze(settings,ahri,'进攻','',[]);assert.equal(calls,2);
+});
+test('coach loads both champions raw stats and skills with source and numeric limits',async()=>{
+  const facts=coachFacts(ahri);
+  for(const [hero,expected,source] of [[facts.player,ahri.player,'yasuo'],[facts.enemy,ahri.enemy,'ddragon']] as const){
+    assert.deepEqual(hero.stats,expected.stats);assert.equal(hero.sourceId,source);assert.deepEqual(hero.passive,expected.passive);
+    assert.equal(hero.spells.length,4);assert.deepEqual(hero.spells[2].cooldown,expected.spells[2].cooldown);assert.equal(hero.spells[2].description,expected.spells[2].description);
+  }
+  assert.equal(facts.version,version);assert.match(facts.dataNotes.stats,/不能简单线性/);assert.match(facts.dataNotes.skills,/同一目标/);
+  assert.ok(facts.statFields.some(f=>f.key==='movespeed'));assert.ok(!JSON.stringify(facts).includes('/assets/game/'));
+  const zero=structuredClone(ahri);zero.enemy.spells[0].cooldown=[0,0,0,0,0];assert.equal(coachFacts(zero).enemy.spells[0].cooldown,null);
+  const bodies:any[]=[];const coach=new Coach((async(_url,init)=>{bodies.push(JSON.parse(init!.body as string));return completion();}) as typeof fetch);
+  await coach.analyze(settings,ahri,'狐狸 E 的基础 CD 是多少？','',[]);
+  assert.ok(bodies[0].messages.at(-1).content.startsWith('当前问题（本次回答的重点）：\n狐狸 E 的基础 CD 是多少？\n'));
+  await coach.analyze(settings,ahri,'容易被消耗','亚索基础移速是多少？',[{role:'user',content:'如何换血？'}]);
+  assert.ok(bodies[1].messages.at(-1).content.startsWith('当前问题（本次回答的重点）：\n亚索基础移速是多少？\n'));
 });
 test('AI cache separates enemy, model, provider, knowledge revision and context',async()=>{
   const key=cacheKey(settings,ahri,'','',[]);
@@ -113,6 +130,13 @@ test('provider returning seven valid actions keeps the leading five and still va
   assert.throws(()=>parseAdvice(JSON.stringify({...valid,actions:[...actions,null]}),ahri),/结构不完整/);
   assert.throws(()=>parseAdvice(JSON.stringify({...valid,actions,sourceIds:['invented']}),ahri),/资料包以外/);
   assert.throws(()=>parseAdvice(JSON.stringify({...valid,actions:[]}),ahri),/结构不完整/);
+});
+test('malformed model format is repaired once under the shared deadline and source validation',async()=>{
+  const bodies:any[]=[];const signals:AbortSignal[]=[];
+  const coach=new Coach((async(_url,init)=>{bodies.push(JSON.parse(init!.body as string));signals.push(init!.signal as AbortSignal);return completion(bodies.length===1?'请参考致命节奏与当前版本资料。':JSON.stringify(valid));}) as typeof fetch);
+  const result=await coach.analyze(settings,ahri,'','怎么选符文？',[]);assert.equal(result.advice.headline,valid.headline);assert.equal(bodies.length,2);assert.equal(signals[0],signals[1]);assert.ok(!bodies[1].response_format);assert.match(bodies[1].messages.at(-1).content,/只修复格式/);
+  let calls=0;const invalid=new Coach((async()=>{calls++;return completion('invalid');}) as typeof fetch);await assert.rejects(invalid.analyze(settings,ahri,'','',[]),/有效 JSON/);assert.equal(calls,2);
+  calls=0;const invented=new Coach((async()=>{calls++;return completion(JSON.stringify({...valid,sourceIds:['invented']}));}) as typeof fetch);await assert.rejects(invented.analyze(settings,ahri,'','',[]),/资料包以外/);assert.equal(calls,1);
 });
 test('network diagnostics inspect nested causes without leaking provider error text',()=>{
   assert.equal(transportIssue(new TypeError('fetch failed',{cause:Object.assign(new Error('private-key-or-url'),{code:'ECONNRESET'})})).retryable,true);
@@ -158,5 +182,7 @@ test('settings test route and analysis route both accept provider-compatible rep
   },{fetcher:(async()=>{calls++;if(calls===1)throw new TypeError('fetch failed',{cause:{code:'ECONNRESET'}});return completion(JSON.stringify({...valid,actions}));}) as typeof fetch});
 });
 test('failed data update keeps existing snapshot available',async()=>withApp(async app=>{
-  const r=await app.inject({method:'POST',url:'/api/data/update',payload:{}});assert.equal(r.statusCode,502);assert.match(r.json().error,/缓存和攻略仍可使用/);assert.equal((await app.inject(`/api/matchup?enemy=Ahri&version=${version}`)).statusCode,200);
+  const r=await app.inject({method:'POST',url:'/api/data/update',payload:{}});assert.equal(r.statusCode,202);assert.equal(r.json().state,'running');
+  let current=r.json();for(let i=0;i<100&&current.state==='running';i++){await new Promise(r=>setTimeout(r,5));current=(await app.inject('/api/data/update')).json();}
+  assert.equal(current.state,'error');assert.match(current.message,/缓存和攻略仍可使用/);assert.equal((await app.inject(`/api/matchup?enemy=Ahri&version=${version}`)).statusCode,200);
 },{sync:async()=>{throw new Error('offline');}}));

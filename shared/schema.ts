@@ -1,4 +1,6 @@
 import { z } from 'zod';
+import { CombatInputSchema, type CombatReport } from './combat.js';
+import { NumericInputSchema, type NumericReport } from './numerics.js';
 
 export const Version = z.string().regex(/^\d+\.\d+\.\d+$/);
 export const ChampionId = z.string().regex(/^[A-Za-z0-9]+$/).max(40);
@@ -41,9 +43,25 @@ export const LoadoutRulesSchema = z.object({ revision:z.string(), patch:Version,
 export const SettingsInput = z.object({ baseUrl: z.string().trim().url().max(500).refine(v => { try { const u = new URL(v); return !u.username && !u.password && !u.search && !u.hash && (u.protocol === 'https:' || (u.protocol === 'http:' && ['localhost','127.0.0.1','[::1]'].includes(u.hostname))); } catch { return false; } }, '请使用 HTTPS 接口地址（本机服务可使用 HTTP），地址不能包含账号、查询参数或锚点'), model: z.string().trim().min(1).max(150), apiKey: z.string().max(1000).optional(), clearKey: z.boolean().optional() });
 export type Settings = { baseUrl: string; model: string; apiKey: string };
 export type PublicSettings = { baseUrl: string; model: string; hasKey: boolean };
-export const AdviceInput = z.object({ enemy: ChampionId, version: Version, context: z.string().max(1200).default(''), question: z.string().max(1200).default(''), history: z.array(z.object({ role: z.enum(['user','assistant']), content: z.string().max(5000) })).max(8).default([]) });
+export const AdviceInput = z.object({ enemy: ChampionId, version: Version, context: z.string().max(1200).default(''), question: z.string().max(1200).default(''), useLolps:z.boolean().default(false), combat:CombatInputSchema.optional(), numeric:NumericInputSchema.optional(), history: z.array(z.object({ role: z.enum(['user','assistant']), content: z.string().max(5000) })).max(8).default([]) });
 export const AdviceSchema = z.object({ headline: z.string().min(1).max(180), actions: z.array(z.string().min(1).max(500)).min(1).max(5), explanation: z.string().min(1).max(3500), sourceIds: z.array(z.string()).min(1).max(8) }).strict();
 export type Advice = z.infer<typeof AdviceSchema>;
+export type LolpsChoice = {id:number;name:string|null;available:boolean;quantity?:number;description?:string|null;gold?:number|null};
+export type LolpsReference = {
+  status:'ready'|'stale'|'unavailable';message:string;fetchedAt:string|null;source:Source|null;
+  patch:string|null;requestedPatch:string;versionMatch:boolean|null;
+  region:'韩服';tier:'翡翠及以上';lane:'中路';timeRange:string;
+  sampleCount:number|null;overallWinRate:number|null;
+  matchup:{enemy:string;winRate:number;sampleCount:number}|null;
+  builds:{label:string;runes:LolpsChoice[];shards:number[];startingItems:LolpsChoice[];boots:LolpsChoice;coreItems:LolpsChoice[];
+    runeStats:{winRate:number|null;pickRate:number|null;sampleCount:number|null};
+    startingStats:{winRate:number|null;pickRate:number|null;sampleCount:number|null};
+    coreCombinations:{items:LolpsChoice[];winRate:number|null;pickRate:number|null;sampleCount:number|null}[];
+    skillOrder:string[];skillPriority:string[];
+  }[];
+  limits:string[];
+};
+export type AdviceResult = {advice:Advice;cached:boolean;model:string;sources?:Source[];reference?:LolpsReference|null};
 export type BuildGroup = { label: string; reason: string; items: Item[]; missing: string[]; kind?: 'starter'; quantities?: Record<string,number>; totalGold?: number|null; budgetValid?: boolean };
 export type RunePage = { label: string; reason: string; primary: Rune[]; secondary: Rune[]; missing: string[]; shards: string[] };
 export type Matchup = {
@@ -51,4 +69,15 @@ export type Matchup = {
   knowledgeRevision: string; reviewedPatch: string; stale: boolean; verification: string;
   sources: Source[]; builds: BuildGroup[]; runePages: RunePage[]; statsStatus: string;
   loadoutBasis: string;
+  lolps?:LolpsReference;
+  combat?:CombatReport;
+  numerics?:NumericReport;
+};
+export type DataUpdateStatus = {
+  id: string|null;
+  state: 'idle'|'running'|'success'|'error';
+  message: string;
+  version: string|null;
+  startedAt: string|null;
+  finishedAt: string|null;
 };

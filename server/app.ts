@@ -7,9 +7,17 @@ import { AdviceInput, SettingsInput, Version, ChampionId } from '../shared/schem
 import { ROOT, versions, snapshot, matchup, knowledge, clearSnapshots } from './data.js';
 import { ConfigStore, Coach } from './ai.js';
 import { syncData } from '../scripts/sync-data.js';
-export async function createApp(options:{configDir?:string;fetcher?:typeof fetch;timeout?:number;staticFiles?:boolean;sync?:typeof syncData}={}) {
+import { DataUpdater } from './data-updater.js';
+import { LolpsProvider, withLolps } from './lolps.js';
+import { combatReport, withCombat } from './combat.js';
+import { CombatInputSchema } from '../shared/combat.js';
+import { NumericInputSchema } from '../shared/numerics.js';
+import { numericReport, withNumerics } from './numerics.js';
+export async function createApp(options:{configDir?:string;fetcher?:typeof fetch;timeout?:number;staticFiles?:boolean;sync?:typeof syncData;lolps?:Pick<LolpsProvider,'get'>}={}) {
   const app=Fastify({logger:false,bodyLimit:65536});const store=new ConfigStore(options.configDir||path.join(ROOT,'.local'));const coach=new Coach(options.fetcher,options.timeout);
-  let updateBusy=false;let aiBusy=false;
+  const updater=new DataUpdater(options.sync||syncData,versions,()=>{clearSnapshots();coach.clear();});
+  const lolps=options.lolps||new LolpsProvider(path.join(store.dir,'lolps-cache'));
+  let aiBusy=false;
   app.addHook('onRequest',async(req,reply)=>{
     reply.header('X-Content-Type-Options','nosniff').header('Referrer-Policy','no-referrer').header('X-Frame-Options','DENY');
     if(req.url.startsWith('/api')){
@@ -42,12 +50,13 @@ export async function createApp(options:{configDir?:string;fetcher?:typeof fetch
   app.post('/api/settings/test',async()=>{if(aiBusy)throw Object.assign(new Error('已有 AI 请求进行中，请稍候。'),{statusCode:409});aiBusy=true;try{return await coach.test(await store.read(),await matchup('Ahri',(await versions())[0]));}finally{aiBusy=false;}});
   app.post('/api/advice',async(req)=>{
     const input=AdviceInput.parse(req.body);if(aiBusy)throw Object.assign(new Error('已有 AI 请求进行中，请稍候。'),{statusCode:409});aiBusy=true;
-    try{return await coach.analyze(await store.read(),await matchup(input.enemy,input.version),input.context,input.question,input.history);}finally{aiBusy=false;}
+    try{const settings=await store.read();if(!settings.apiKey||!settings.model||!settings.baseUrl)throw Object.assign(new Error('请先在设置中填写接口地址、模型名称和密钥。'),{statusCode:400});let m=await matchup(input.enemy,input.version);m=withCombat(m,await combatReport(m,input.combat));m=withNumerics(m,await numericReport(m,input.numeric));if(input.useLolps)m=withLolps(m,await lolps.get(m));return await coach.analyze(settings,m,input.context,input.question,input.history);}finally{aiBusy=false;}
   });
-  app.post('/api/data/update',async(_req,reply)=>{
-    if(updateBusy)return reply.code(409).send({error:'数据正在更新，请稍候。'});updateBusy=true;
-    try{const version=await (options.sync||syncData)(()=>{});clearSnapshots();return {version,message:'更新完成，旧版本仍然保留。攻略保留原核查版本。'};}catch{return reply.code(502).send({error:'暂时无法更新官方数据，已有缓存和攻略仍可使用。'});}finally{updateBusy=false;}
-  });
+  app.post('/api/combat',async(req)=>{const input=z.object({enemy:ChampionId,version:Version,combat:CombatInputSchema.optional()}).parse(req.body);return combatReport(await matchup(input.enemy,input.version),input.combat);});
+  app.post('/api/numerics',async(req)=>{const input=z.object({enemy:ChampionId,version:Version,numeric:NumericInputSchema.optional()}).parse(req.body);return numericReport(await matchup(input.enemy,input.version),input.numeric);});
+  app.post('/api/references/lolps',async(req)=>{const input=z.object({enemy:ChampionId,version:Version,refresh:z.boolean().default(false)}).parse(req.body);return lolps.get(await matchup(input.enemy,input.version),input.refresh);});
+  app.post('/api/data/update',async(_req,reply)=>reply.code(202).send(updater.start()));
+  app.get('/api/data/update',async()=>updater.current());
   if(options.staticFiles!==false){
     await app.register(staticPlugin,{root:path.join(ROOT,'public/assets/game'),prefix:'/assets/game/',decorateReply:false});
     try{await access(path.join(ROOT,'dist/index.html'));await app.register(staticPlugin,{root:path.join(ROOT,'dist'),prefix:'/',wildcard:false});}catch{/* development uses Vite */}

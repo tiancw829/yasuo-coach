@@ -1,0 +1,1592 @@
+{
+  "revision": "combat-16.21-v1",
+  "patch": "16.21",
+  "version": "16.21.1",
+  "checkedAt": "2026-10-28",
+  "sources": [
+    {
+      "id": "combat-yasuo",
+      "label": "CommunityDragon 游戏文件解析 · yasuo · 16.21",
+      "url": "https://raw.communitydragon.org/16.21/game/data/characters/yasuo/yasuo.bin.json",
+      "patch": "16.21",
+      "checkedAt": "2026-10-28"
+    },
+    {
+      "id": "combat-ahri",
+      "label": "CommunityDragon 游戏文件解析 · ahri · 16.21",
+      "url": "https://raw.communitydragon.org/16.21/game/data/characters/ahri/ahri.bin.json",
+      "patch": "16.21",
+      "checkedAt": "2026-10-28"
+    },
+    {
+      "id": "combat-sru_orderminionmelee",
+      "label": "CommunityDragon 游戏文件解析 · sru_orderminionmelee · 16.21",
+      "url": "https://raw.communitydragon.org/16.21/game/data/characters/sru_orderminionmelee/sru_orderminionmelee.bin.json",
+      "patch": "16.21",
+      "checkedAt": "2026-10-28"
+    },
+    {
+      "id": "combat-sru_orderminionranged",
+      "label": "CommunityDragon 游戏文件解析 · sru_orderminionranged · 16.21",
+      "url": "https://raw.communitydragon.org/16.21/game/data/characters/sru_orderminionranged/sru_orderminionranged.bin.json",
+      "patch": "16.21",
+      "checkedAt": "2026-10-28"
+    },
+    {
+      "id": "combat-sru_orderminionsiege",
+      "label": "CommunityDragon 游戏文件解析 · sru_orderminionsiege · 16.21",
+      "url": "https://raw.communitydragon.org/16.21/game/data/characters/sru_orderminionsiege/sru_orderminionsiege.bin.json",
+      "patch": "16.21",
+      "checkedAt": "2026-10-28"
+    }
+  ],
+  "characters": {
+    "yasuo": {
+      "rootKey": "Characters/Yasuo/CharacterRecords/Root",
+      "root": {
+        "baseHPModifiable": {
+          "baseValue": 590,
+          "__type": "ModifiableFloat"
+        },
+        "hpPerLevelModifiable": {
+          "baseValue": 110,
+          "__type": "ModifiableFloat"
+        },
+        "baseDamageModifiable": {
+          "baseValue": 60,
+          "__type": "ModifiableFloat"
+        },
+        "damagePerLevelModifiable": {
+          "baseValue": 2.5,
+          "__type": "ModifiableFloat"
+        },
+        "baseArmorModifiable": {
+          "baseValue": 32,
+          "__type": "ModifiableFloat"
+        },
+        "armorPerLevelModifiable": {
+          "baseValue": 4.599999904632568,
+          "__type": "ModifiableFloat"
+        },
+        "baseMR": {
+          "baseValue": 32,
+          "__type": "ModifiableFloat"
+        },
+        "mrPerLevel": {
+          "baseValue": 2.049999952316284,
+          "__type": "ModifiableFloat"
+        },
+        "attackSpeedModifiable": {
+          "baseValue": 0.6970000267028809,
+          "__type": "ModifiableFloat"
+        },
+        "attackSpeedRatioModifiable": {
+          "baseValue": 0.6700000166893005,
+          "__type": "ModifiableFloat"
+        },
+        "attackSpeedPerLevelModifiable": {
+          "baseValue": 3.5,
+          "__type": "ModifiableFloat"
+        },
+        "primaryAbilityResource": {
+          "arType": 11,
+          "{c4ab3550}": {
+            "baseValue": 0,
+            "__type": "ModifiableFloat"
+          },
+          "arIncrements": 100,
+          "arMaxSegments": 10,
+          "arAllowMaxValueToBeOverridden": true,
+          "__type": "AbilityResourceSlotInfo"
+        },
+        "basicAttack": {
+          "mAttackDelayCastOffsetPercent": -0.07999999821186066,
+          "mAttackDelayCastOffsetPercentAttackSpeedRatio": 1,
+          "mAttackProbability": 1,
+          "__type": "AttackSlotData"
+        }
+      },
+      "spells": [
+        {
+          "key": "Characters/Yasuo/Spells/YasuoQ1WrapperAbility/YasuoQ1Wrapper",
+          "DataValues": [
+            {
+              "name": "BaseDamage",
+              "values": [
+                -5,
+                20,
+                45,
+                70,
+                95,
+                120,
+                145
+              ],
+              "__type": "SpellDataValue"
+            },
+            {
+              "name": "StabRange",
+              "values": [
+                450,
+                450,
+                450,
+                450,
+                450,
+                450,
+                450
+              ],
+              "__type": "SpellDataValue"
+            },
+            {
+              "name": "TornadoRange",
+              "values": [
+                1100,
+                1100,
+                1100,
+                1100,
+                1100,
+                1100,
+                1100
+              ],
+              "__type": "SpellDataValue"
+            },
+            {
+              "name": "Cooldown",
+              "values": [
+                4,
+                4,
+                4,
+                4,
+                4,
+                4,
+                4
+              ],
+              "__type": "SpellDataValue"
+            },
+            {
+              "name": "StabWidth",
+              "values": [
+                80,
+                80,
+                80,
+                80,
+                80,
+                80,
+                80
+              ],
+              "__type": "SpellDataValue"
+            },
+            {
+              "name": "SpinWidth",
+              "values": [
+                260,
+                260,
+                260,
+                260,
+                260,
+                260,
+                260
+              ],
+              "__type": "SpellDataValue"
+            },
+            {
+              "name": "GatheringStormDuration",
+              "values": [
+                6,
+                6,
+                6,
+                6,
+                6,
+                6,
+                6
+              ],
+              "__type": "SpellDataValue"
+            },
+            {
+              "name": "KnockUpDurationTOOLTIPONLY",
+              "values": [
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1
+              ],
+              "__type": "SpellDataValue"
+            },
+            {
+              "name": "ADRatio",
+              "values": [
+                1.0499999523162842,
+                1.0499999523162842,
+                1.0499999523162842,
+                1.0499999523162842,
+                1.0499999523162842,
+                1.0499999523162842,
+                1.0499999523162842
+              ],
+              "__type": "SpellDataValue"
+            }
+          ],
+          "calculations": {
+            "TotalDamage": {
+              "mFormulaParts": [
+                {
+                  "mDataValue": "BaseDamage",
+                  "__type": "NamedDataValueCalculationPart"
+                },
+                {
+                  "mStat": 2,
+                  "mDataValue": "ADRatio",
+                  "__type": "StatByNamedDataValueCalculationPart"
+                }
+              ],
+              "__type": "GameCalculation"
+            },
+            "TotalDamageCrit": {
+              "mFormulaParts": [
+                {
+                  "mDataValue": "BaseDamage",
+                  "__type": "NamedDataValueCalculationPart"
+                },
+                {
+                  "mStat": 2,
+                  "mSubpart": {
+                    "mStat": 9,
+                    "mDataValue": "ADRatio",
+                    "__type": "StatByNamedDataValueCalculationPart"
+                  },
+                  "__type": "StatBySubPartCalculationPart"
+                }
+              ],
+              "mPrecision": 1,
+              "__type": "GameCalculation"
+            }
+          },
+          "mana": null,
+          "cooldown": [
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4
+          ]
+        },
+        {
+          "key": "Characters/Yasuo/Spells/YasuoEAbility/YasuoE",
+          "DataValues": [
+            {
+              "name": "MaxStacks",
+              "values": [
+                4,
+                4,
+                4,
+                4,
+                4,
+                4,
+                4
+              ],
+              "__type": "SpellDataValue"
+            },
+            {
+              "name": "StackDuration",
+              "values": [
+                5,
+                5,
+                5,
+                5,
+                5,
+                5,
+                5
+              ],
+              "__type": "SpellDataValue"
+            },
+            {
+              "name": "BaseDamage",
+              "values": [
+                55,
+                70,
+                85,
+                100,
+                115,
+                130,
+                145
+              ],
+              "__type": "SpellDataValue"
+            },
+            {
+              "name": "APRatio",
+              "values": [
+                0.6000000238418579,
+                0.6000000238418579,
+                0.6000000238418579,
+                0.6000000238418579,
+                0.6000000238418579,
+                0.6000000238418579,
+                0.6000000238418579
+              ],
+              "__type": "SpellDataValue"
+            },
+            {
+              "name": "ADRatio",
+              "values": [
+                0.20000000298023224,
+                0.20000000298023224,
+                0.20000000298023224,
+                0.20000000298023224,
+                0.20000000298023224,
+                0.20000000298023224,
+                0.20000000298023224
+              ],
+              "__type": "SpellDataValue"
+            },
+            {
+              "name": "PerTargetCooldown",
+              "values": [
+                11,
+                10,
+                9,
+                8,
+                7,
+                6,
+                6
+              ],
+              "__type": "SpellDataValue"
+            },
+            {
+              "name": "BaseDashSpeed",
+              "values": [
+                750,
+                750,
+                750,
+                750,
+                750,
+                750,
+                750
+              ],
+              "__type": "SpellDataValue"
+            }
+          ],
+          "calculations": {
+            "TotalDamage": {
+              "mFormulaParts": [
+                {
+                  "mDataValue": "BaseDamage",
+                  "__type": "NamedDataValueCalculationPart"
+                },
+                {
+                  "mStat": 2,
+                  "mStatFormula": 2,
+                  "mDataValue": "ADRatio",
+                  "__type": "StatByNamedDataValueCalculationPart"
+                },
+                {
+                  "mDataValue": "APRatio",
+                  "__type": "StatByNamedDataValueCalculationPart"
+                }
+              ],
+              "__type": "GameCalculation"
+            },
+            "BonusDamagePerStack": {
+              "mMultiplier": {
+                "mNumber": 0.25,
+                "__type": "NumberCalculationPart"
+              },
+              "mModifiedGameCalculation": "TotalDamage",
+              "__type": "GameCalculationModified"
+            }
+          },
+          "mana": null,
+          "cooldown": [
+            0.5,
+            0.5,
+            0.4000000059604645,
+            0.30000001192092896,
+            0.20000000298023224,
+            0.10000000149011612,
+            0.10000000149011612
+          ]
+        },
+        {
+          "key": "Characters/Yasuo/Spells/YasuoRAbility/YasuoR",
+          "DataValues": [
+            {
+              "name": "RBaseDamage",
+              "values": [
+                50,
+                200,
+                350,
+                500,
+                650,
+                800,
+                950
+              ],
+              "__type": "SpellDataValue"
+            },
+            {
+              "name": "RPercentArmorPen",
+              "values": [
+                60,
+                60,
+                60,
+                60,
+                60,
+                60,
+                60
+              ],
+              "__type": "SpellDataValue"
+            },
+            {
+              "name": "RBuffDuration",
+              "values": [
+                15,
+                15,
+                15,
+                15,
+                15,
+                15,
+                15
+              ],
+              "__type": "SpellDataValue"
+            },
+            {
+              "name": "RKnockupDuration",
+              "values": [
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1
+              ],
+              "__type": "SpellDataValue"
+            },
+            {
+              "name": "RRadius",
+              "values": [
+                400,
+                400,
+                400,
+                400,
+                400,
+                400,
+                400
+              ],
+              "__type": "SpellDataValue"
+            },
+            {
+              "name": "RCastSearchRadius",
+              "values": [
+                1100,
+                1100,
+                1100,
+                1100,
+                1100,
+                1100,
+                1100
+              ],
+              "__type": "SpellDataValue"
+            }
+          ],
+          "calculations": {
+            "Damage": {
+              "mFormulaParts": [
+                {
+                  "mDataValue": "RBaseDamage",
+                  "__type": "NamedDataValueCalculationPart"
+                },
+                {
+                  "mStat": 2,
+                  "mStatFormula": 2,
+                  "mCoefficient": 1.5,
+                  "__type": "StatByCoefficientCalculationPart"
+                }
+              ],
+              "__type": "GameCalculation"
+            }
+          },
+          "mana": null,
+          "cooldown": [
+            105,
+            70,
+            50,
+            30,
+            30,
+            30,
+            30
+          ]
+        },
+        {
+          "key": "Characters/Yasuo/Spells/YasuoPassiveAbility/YasuoPassive",
+          "DataValues": [
+            {
+              "name": "YasuoCritToAD",
+              "values": [
+                50,
+                50,
+                50,
+                50,
+                50,
+                50,
+                50
+              ],
+              "__type": "SpellDataValue"
+            },
+            {
+              "name": "CritChanceMultiplier",
+              "values": [
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1
+              ],
+              "__type": "SpellDataValue"
+            },
+            {
+              "name": "CritDamageMod",
+              "values": [
+                0.949999988079071,
+                0.949999988079071,
+                0.949999988079071,
+                0.949999988079071,
+                0.949999988079071,
+                0.949999988079071,
+                0.949999988079071
+              ],
+              "__type": "SpellDataValue"
+            }
+          ],
+          "calculations": {
+            "ShieldValue": {
+              "mFormulaParts": [
+                {
+                  "mStartValue": 125,
+                  "mEndValue": 600,
+                  "mScaleByStatProgressionMultiplier": true,
+                  "__type": "ByCharLevelInterpolationCalculationPart"
+                }
+              ],
+              "__type": "GameCalculation"
+            },
+            "{74ce5438}": {
+              "mFormulaParts": [
+                {
+                  "mLevel1Value": 55,
+                  "mBreakpoints": [
+                    {
+                      "mLevel": 7,
+                      "mAdditionalBonusAtThisLevel": -5,
+                      "__type": "Breakpoint"
+                    },
+                    {
+                      "mLevel": 13,
+                      "mAdditionalBonusAtThisLevel": -5,
+                      "__type": "Breakpoint"
+                    },
+                    {
+                      "mLevel": 19,
+                      "mAdditionalBonusAtThisLevel": -5,
+                      "__type": "Breakpoint"
+                    },
+                    {
+                      "mLevel": 25,
+                      "mAdditionalBonusAtThisLevel": -5,
+                      "__type": "Breakpoint"
+                    }
+                  ],
+                  "__type": "ByCharLevelBreakpointsCalculationPart"
+                }
+              ],
+              "__type": "GameCalculation"
+            },
+            "CurrentCritDamage": {
+              "mExpandedTooltipCalculationDisplay": 6,
+              "mFormulaParts": [
+                {
+                  "mStat": 9,
+                  "mCoefficient": 1,
+                  "__type": "StatByCoefficientCalculationPart"
+                }
+              ],
+              "mDisplayAsPercent": true,
+              "__type": "GameCalculation"
+            }
+          },
+          "mana": null,
+          "cooldown": null
+        },
+        {
+          "key": "Characters/Yasuo/Spells/YasuoWMovingWall",
+          "DataValues": [
+            {
+              "name": "WallLife",
+              "values": [
+                4,
+                4,
+                4,
+                4,
+                4,
+                4,
+                4
+              ],
+              "__type": "SpellDataValue"
+            }
+          ],
+          "calculations": {},
+          "mana": null,
+          "cooldown": [
+            28,
+            26,
+            24,
+            22,
+            20,
+            18,
+            18
+          ]
+        },
+        {
+          "key": "Characters/Yasuo/Spells/YasuoWAbility/YasuoW",
+          "DataValues": [
+            {
+              "name": "WallLife",
+              "values": [
+                4,
+                4,
+                4,
+                4,
+                4,
+                4,
+                4
+              ],
+              "__type": "SpellDataValue"
+            },
+            {
+              "name": "Width",
+              "values": [
+                250,
+                320,
+                390,
+                460,
+                530,
+                600,
+                670
+              ],
+              "__type": "SpellDataValue"
+            },
+            {
+              "name": "TravelRange",
+              "values": [
+                450,
+                450,
+                450,
+                450,
+                450,
+                450,
+                450
+              ],
+              "__type": "SpellDataValue"
+            },
+            {
+              "name": "BubbleRadius",
+              "values": [
+                300,
+                300,
+                300,
+                300,
+                300,
+                300,
+                300
+              ],
+              "__type": "SpellDataValue"
+            },
+            {
+              "name": "Thickness",
+              "values": [
+                100,
+                100,
+                100,
+                100,
+                100,
+                100,
+                100
+              ],
+              "__type": "SpellDataValue"
+            }
+          ],
+          "calculations": {},
+          "mana": null,
+          "cooldown": [
+            27,
+            25,
+            23,
+            21,
+            19,
+            17,
+            15
+          ]
+        }
+      ]
+    },
+    "ahri": {
+      "rootKey": "Characters/Ahri/CharacterRecords/Root",
+      "root": {
+        "baseHPModifiable": {
+          "baseValue": 590,
+          "__type": "ModifiableFloat"
+        },
+        "hpPerLevelModifiable": {
+          "baseValue": 104,
+          "__type": "ModifiableFloat"
+        },
+        "baseDamageModifiable": {
+          "baseValue": 53,
+          "__type": "ModifiableFloat"
+        },
+        "damagePerLevelModifiable": {
+          "baseValue": 3,
+          "__type": "ModifiableFloat"
+        },
+        "baseArmorModifiable": {
+          "baseValue": 21,
+          "__type": "ModifiableFloat"
+        },
+        "armorPerLevelModifiable": {
+          "baseValue": 4.199999809265137,
+          "__type": "ModifiableFloat"
+        },
+        "baseMR": {
+          "baseValue": 30,
+          "__type": "ModifiableFloat"
+        },
+        "mrPerLevel": {
+          "baseValue": 1.2999999523162842,
+          "__type": "ModifiableFloat"
+        },
+        "attackSpeedModifiable": {
+          "baseValue": 0.6679999828338623,
+          "__type": "ModifiableFloat"
+        },
+        "attackSpeedRatioModifiable": {
+          "baseValue": 0.625,
+          "__type": "ModifiableFloat"
+        },
+        "attackSpeedPerLevelModifiable": {
+          "baseValue": 2.200000047683716,
+          "__type": "ModifiableFloat"
+        },
+        "primaryAbilityResource": {
+          "arType": 0,
+          "{726ee5cd}": {
+            "baseValue": 418,
+            "__type": "ModifiableFloat"
+          },
+          "{6216bf7b}": {
+            "baseValue": 25,
+            "__type": "ModifiableFloat"
+          },
+          "{c4ab3550}": {
+            "baseValue": 1.600000023841858,
+            "__type": "ModifiableFloat"
+          },
+          "{3a509002}": {
+            "baseValue": 0.1599999964237213,
+            "__type": "ModifiableFloat"
+          },
+          "__type": "AbilityResourceSlotInfo"
+        },
+        "basicAttack": {
+          "mAttackDelayCastOffsetPercent": -0.10000000149011612,
+          "mAttackProbability": 0.5,
+          "__type": "AttackSlotData"
+        }
+      },
+      "spells": [
+        {
+          "key": "Characters/Ahri/Spells/AhriSkin86Manager",
+          "DataValues": [
+            {
+              "name": "GoldToNextForm",
+              "values": [
+                2000,
+                6000,
+                6000,
+                6000,
+                6000,
+                6000,
+                6000
+              ],
+              "__type": "SpellDataValue"
+            },
+            {
+              "name": "SecondsOutOfCombatTillTransform",
+              "values": [
+                5,
+                5,
+                5,
+                5,
+                5,
+                5,
+                5
+              ],
+              "__type": "SpellDataValue"
+            },
+            {
+              "name": "SecondsOutOfCombatTillEmote",
+              "values": [
+                3,
+                3,
+                3,
+                3,
+                3,
+                3,
+                3
+              ],
+              "__type": "SpellDataValue"
+            }
+          ],
+          "calculations": {},
+          "mana": null,
+          "cooldown": null
+        },
+        {
+          "key": "Characters/Ahri/Spells/AhriPassiveAbility/AhriPassive",
+          "DataValues": [
+            {
+              "name": "TakedownWindow",
+              "values": [
+                3,
+                3,
+                3,
+                3,
+                3,
+                3,
+                3
+              ],
+              "__type": "SpellDataValue"
+            },
+            {
+              "name": "MaxStacks",
+              "values": [
+                9,
+                9,
+                9,
+                9,
+                9,
+                9,
+                9
+              ],
+              "__type": "SpellDataValue"
+            }
+          ],
+          "calculations": {
+            "ChampionHeal": {
+              "mFormulaParts": [
+                {
+                  "mStartValue": 75,
+                  "mEndValue": 165,
+                  "__type": "ByCharLevelInterpolationCalculationPart"
+                },
+                {
+                  "mCoefficient": 0.30000001192092896,
+                  "__type": "StatByCoefficientCalculationPart"
+                }
+              ],
+              "__type": "GameCalculation"
+            },
+            "MinionHeal": {
+              "mFormulaParts": [
+                {
+                  "mStartValue": 35,
+                  "mEndValue": 95,
+                  "__type": "ByCharLevelInterpolationCalculationPart"
+                },
+                {
+                  "mCoefficient": 0.20000000298023224,
+                  "__type": "StatByCoefficientCalculationPart"
+                }
+              ],
+              "__type": "GameCalculation"
+            }
+          },
+          "mana": null,
+          "cooldown": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "key": "Characters/Ahri/Spells/AhriWAbility/AhriW",
+          "DataValues": [
+            {
+              "name": "MovementSpeed",
+              "values": [
+                0.4000000059604645,
+                0.4000000059604645,
+                0.4000000059604645,
+                0.4000000059604645,
+                0.4000000059604645,
+                0.4000000059604645,
+                0.4000000059604645
+              ],
+              "__type": "SpellDataValue"
+            },
+            {
+              "name": "MovementSpeedDuration",
+              "values": [
+                2,
+                2,
+                2,
+                2,
+                2,
+                2,
+                2
+              ],
+              "__type": "SpellDataValue"
+            },
+            {
+              "name": "MinionBonusDamageMultiplier",
+              "values": [
+                2,
+                2,
+                2,
+                2,
+                2,
+                2,
+                2
+              ],
+              "__type": "SpellDataValue"
+            },
+            {
+              "name": "MinionBonusDamageThreshold",
+              "values": [
+                0.20000000298023224,
+                0.20000000298023224,
+                0.20000000298023224,
+                0.20000000298023224,
+                0.20000000298023224,
+                0.20000000298023224,
+                0.20000000298023224
+              ],
+              "__type": "SpellDataValue"
+            },
+            {
+              "name": "BaseDamage",
+              "values": [
+                20,
+                40,
+                60,
+                80,
+                100,
+                120,
+                140
+              ],
+              "__type": "SpellDataValue"
+            },
+            {
+              "name": "RepeatDamageMod",
+              "values": [
+                0.4000000059604645,
+                0.4000000059604645,
+                0.4000000059604645,
+                0.4000000059604645,
+                0.4000000059604645,
+                0.4000000059604645,
+                0.4000000059604645
+              ],
+              "__type": "SpellDataValue"
+            },
+            {
+              "name": "AcquisitionRange",
+              "values": [
+                550,
+                550,
+                550,
+                550,
+                550,
+                550,
+                550
+              ],
+              "__type": "SpellDataValue"
+            },
+            {
+              "name": "BonusAcquisitionRange",
+              "values": [
+                725,
+                725,
+                725,
+                725,
+                725,
+                725,
+                725
+              ],
+              "__type": "SpellDataValue"
+            },
+            {
+              "name": "InitialDelay",
+              "values": [
+                0.25,
+                0.25,
+                0.25,
+                0.25,
+                0.25,
+                0.25,
+                0.25
+              ],
+              "__type": "SpellDataValue"
+            },
+            {
+              "name": "SecondaryDelay",
+              "values": [
+                0.4000000059604645,
+                0.4000000059604645,
+                0.4000000059604645,
+                0.4000000059604645,
+                0.4000000059604645,
+                0.4000000059604645,
+                0.4000000059604645
+              ],
+              "__type": "SpellDataValue"
+            },
+            {
+              "name": "FlameDuration",
+              "values": [
+                2.5,
+                2.5,
+                2.5,
+                2.5,
+                2.5,
+                2.5,
+                2.5
+              ],
+              "__type": "SpellDataValue"
+            },
+            {
+              "name": "OrbitRadius",
+              "values": [
+                150,
+                150,
+                150,
+                150,
+                150,
+                150,
+                150
+              ],
+              "__type": "SpellDataValue"
+            },
+            {
+              "name": "APRatio",
+              "values": [
+                0.4000000059604645,
+                0.4000000059604645,
+                0.4000000059604645,
+                0.4000000059604645,
+                0.4000000059604645,
+                0.4000000059604645,
+                0.4000000059604645
+              ],
+              "__type": "SpellDataValue"
+            }
+          ],
+          "calculations": {
+            "SingleFireDamage": {
+              "mSimpleTooltipCalculationDisplay": 6,
+              "mFormulaParts": [
+                {
+                  "mDataValue": "BaseDamage",
+                  "__type": "NamedDataValueCalculationPart"
+                },
+                {
+                  "mDataValue": "APRatio",
+                  "__type": "StatByNamedDataValueCalculationPart"
+                }
+              ],
+              "__type": "GameCalculation"
+            },
+            "MultiFireDamage": {
+              "mMultiplier": {
+                "mDataValue": "RepeatDamageMod",
+                "__type": "NamedDataValueCalculationPart"
+              },
+              "mSimpleTooltipCalculationDisplay": 6,
+              "mModifiedGameCalculation": "SingleFireDamage",
+              "__type": "GameCalculationModified"
+            }
+          },
+          "mana": [
+            30,
+            30,
+            30,
+            30,
+            30,
+            30
+          ],
+          "cooldown": [
+            9,
+            9,
+            8,
+            7,
+            6,
+            5,
+            4
+          ]
+        },
+        {
+          "key": "Characters/Ahri/Spells/AhriRAbility/AhriR",
+          "DataValues": [
+            {
+              "name": "RBaseDamage",
+              "values": [
+                25,
+                75,
+                125,
+                175,
+                225,
+                275,
+                325
+              ],
+              "__type": "SpellDataValue"
+            },
+            {
+              "name": "RMaxTargetsPerCast",
+              "values": [
+                3,
+                3,
+                3,
+                3,
+                3,
+                3,
+                3
+              ],
+              "__type": "SpellDataValue"
+            },
+            {
+              "name": "RMaxCasts",
+              "values": [
+                3,
+                3,
+                3,
+                3,
+                3,
+                3,
+                3
+              ],
+              "__type": "SpellDataValue"
+            },
+            {
+              "name": "RDashDistance",
+              "values": [
+                500,
+                500,
+                500,
+                500,
+                500,
+                500,
+                500
+              ],
+              "__type": "SpellDataValue"
+            },
+            {
+              "name": "RBaseDashSpeed",
+              "values": [
+                1200,
+                1200,
+                1200,
+                1200,
+                1200,
+                1200,
+                1200
+              ],
+              "__type": "SpellDataValue"
+            },
+            {
+              "name": "RRecastWindow",
+              "values": [
+                15,
+                15,
+                15,
+                15,
+                15,
+                15,
+                15
+              ],
+              "__type": "SpellDataValue"
+            },
+            {
+              "name": "RAcquisitionRange",
+              "values": [
+                600,
+                600,
+                600,
+                600,
+                600,
+                600,
+                600
+              ],
+              "__type": "SpellDataValue"
+            },
+            {
+              "name": "RDashCooldown",
+              "values": [
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1
+              ],
+              "__type": "SpellDataValue"
+            },
+            {
+              "name": "RAPCoefficient",
+              "values": [
+                0.3499999940395355,
+                0.3499999940395355,
+                0.3499999940395355,
+                0.3499999940395355,
+                0.3499999940395355,
+                0.3499999940395355,
+                0.3499999940395355
+              ],
+              "__type": "SpellDataValue"
+            },
+            {
+              "name": "RResetCasts",
+              "values": [
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1
+              ],
+              "__type": "SpellDataValue"
+            },
+            {
+              "name": "PDurationExtension",
+              "values": [
+                10,
+                10,
+                10,
+                10,
+                10,
+                10,
+                10
+              ],
+              "__type": "SpellDataValue"
+            }
+          ],
+          "calculations": {
+            "RCalculatedDamage": {
+              "mFormulaParts": [
+                {
+                  "mDataValue": "RBaseDamage",
+                  "__type": "NamedDataValueCalculationPart"
+                },
+                {
+                  "mDataValue": "rAPCoefficient",
+                  "__type": "StatByNamedDataValueCalculationPart"
+                }
+              ],
+              "__type": "GameCalculation"
+            }
+          },
+          "mana": [
+            100,
+            100,
+            100,
+            100,
+            100,
+            100
+          ],
+          "cooldown": [
+            140,
+            140,
+            120,
+            100,
+            100,
+            100,
+            100
+          ]
+        },
+        {
+          "key": "Characters/Ahri/Spells/AhriQAbility/AhriQ",
+          "DataValues": [
+            {
+              "name": "BaseDamage",
+              "values": [
+                10,
+                35,
+                60,
+                85,
+                110,
+                135,
+                160
+              ],
+              "__type": "SpellDataValue"
+            }
+          ],
+          "calculations": {
+            "TotalDamage": {
+              "mSimpleTooltipCalculationDisplay": 6,
+              "mFormulaParts": [
+                {
+                  "mDataValue": "BaseDamage",
+                  "__type": "NamedDataValueCalculationPart"
+                },
+                {
+                  "mCoefficient": 0.5,
+                  "__type": "StatByCoefficientCalculationPart"
+                }
+              ],
+              "__type": "GameCalculation"
+            }
+          },
+          "mana": [
+            55,
+            65,
+            75,
+            85,
+            95,
+            95
+          ],
+          "cooldown": [
+            7,
+            7,
+            7,
+            7,
+            7,
+            7,
+            7
+          ]
+        },
+        {
+          "key": "Characters/Ahri/Spells/AhriEAbility/AhriE",
+          "DataValues": [
+            {
+              "name": "BaseDamage",
+              "values": [
+                40,
+                80,
+                120,
+                160,
+                200,
+                240,
+                280
+              ],
+              "__type": "SpellDataValue"
+            },
+            {
+              "name": "SlowPercent",
+              "values": [
+                -0.6499999761581421,
+                -0.6499999761581421,
+                -0.6499999761581421,
+                -0.6499999761581421,
+                -0.6499999761581421,
+                -0.6499999761581421,
+                -0.6499999761581421
+              ],
+              "__type": "SpellDataValue"
+            },
+            {
+              "name": "CharmDuration",
+              "values": [
+                1.0499999523162842,
+                1.2000000476837158,
+                1.350000023841858,
+                1.5,
+                1.649999976158142,
+                1.7999999523162842,
+                1.9500000476837158
+              ],
+              "__type": "SpellDataValue"
+            },
+            {
+              "name": "APRatio",
+              "values": [
+                0.8500000238418579,
+                0.8500000238418579,
+                0.8500000238418579,
+                0.8500000238418579,
+                0.8500000238418579,
+                0.8500000238418579,
+                0.8500000238418579
+              ],
+              "__type": "SpellDataValue"
+            }
+          ],
+          "calculations": {
+            "TotalDamage": {
+              "mSimpleTooltipCalculationDisplay": 6,
+              "mFormulaParts": [
+                {
+                  "mDataValue": "BaseDamage",
+                  "__type": "NamedDataValueCalculationPart"
+                },
+                {
+                  "mDataValue": "APRatio",
+                  "__type": "StatByNamedDataValueCalculationPart"
+                }
+              ],
+              "__type": "GameCalculation"
+            }
+          },
+          "mana": [
+            60,
+            60,
+            60,
+            60,
+            60,
+            60
+          ],
+          "cooldown": [
+            12,
+            12,
+            12,
+            12,
+            12,
+            12,
+            12
+          ]
+        }
+      ]
+    },
+    "sru_orderminionmelee": {
+      "rootKey": "Characters/SRU_OrderMinionMelee/CharacterRecords/Root",
+      "root": {
+        "baseHPModifiable": {
+          "baseValue": 430,
+          "__type": "ModifiableFloat"
+        },
+        "baseDamageModifiable": {
+          "baseValue": 11,
+          "__type": "ModifiableFloat"
+        },
+        "baseArmorModifiable": {
+          "baseValue": 0,
+          "__type": "ModifiableFloat"
+        },
+        "attackSpeedModifiable": {
+          "baseValue": 1.25,
+          "__type": "ModifiableFloat"
+        },
+        "attackSpeedRatioModifiable": {
+          "baseValue": 1.25,
+          "__type": "ModifiableFloat"
+        },
+        "primaryAbilityResource": {
+          "{726ee5cd}": {
+            "baseValue": 0,
+            "__type": "ModifiableFloat"
+          },
+          "{c4ab3550}": {
+            "baseValue": 0,
+            "__type": "ModifiableFloat"
+          },
+          "__type": "AbilityResourceSlotInfo"
+        },
+        "basicAttack": {
+          "mAttackTotalTime": 0.800000011920929,
+          "mAttackCastTime": 0.3930000066757202,
+          "__type": "AttackSlotData"
+        }
+      },
+      "spells": []
+    },
+    "sru_orderminionranged": {
+      "rootKey": "Characters/SRU_OrderMinionRanged/CharacterRecords/Root",
+      "root": {
+        "baseHPModifiable": {
+          "baseValue": 275,
+          "__type": "ModifiableFloat"
+        },
+        "baseDamageModifiable": {
+          "baseValue": 19.5,
+          "__type": "ModifiableFloat"
+        },
+        "baseArmorModifiable": {
+          "baseValue": 0,
+          "__type": "ModifiableFloat"
+        },
+        "attackSpeedModifiable": {
+          "baseValue": 0.6669999957084656,
+          "__type": "ModifiableFloat"
+        },
+        "attackSpeedRatioModifiable": {
+          "baseValue": 0.6669999957084656,
+          "__type": "ModifiableFloat"
+        },
+        "primaryAbilityResource": {
+          "{726ee5cd}": {
+            "baseValue": 0,
+            "__type": "ModifiableFloat"
+          },
+          "{c4ab3550}": {
+            "baseValue": 0,
+            "__type": "ModifiableFloat"
+          },
+          "__type": "AbilityResourceSlotInfo"
+        },
+        "basicAttack": {
+          "mAttackTotalTime": 1.5,
+          "mAttackCastTime": 0.4699999988079071,
+          "mAttackProbability": 0.5,
+          "__type": "AttackSlotData"
+        }
+      },
+      "spells": []
+    },
+    "sru_orderminionsiege": {
+      "rootKey": "Characters/SRU_OrderMinionSiege/CharacterRecords/Root",
+      "root": {
+        "baseHPModifiable": {
+          "baseValue": 750,
+          "__type": "ModifiableFloat"
+        },
+        "baseDamageModifiable": {
+          "baseValue": 36,
+          "__type": "ModifiableFloat"
+        },
+        "baseArmorModifiable": {
+          "baseValue": 0,
+          "__type": "ModifiableFloat"
+        },
+        "attackSpeedModifiable": {
+          "baseValue": 1,
+          "__type": "ModifiableFloat"
+        },
+        "primaryAbilityResource": {
+          "{726ee5cd}": {
+            "baseValue": 0,
+            "__type": "ModifiableFloat"
+          },
+          "{c4ab3550}": {
+            "baseValue": 0,
+            "__type": "ModifiableFloat"
+          },
+          "arIsShown": false,
+          "__type": "AbilityResourceSlotInfo"
+        },
+        "basicAttack": {
+          "mAttackTotalTime": 1,
+          "mAttackCastTime": 0.30000001192092896,
+          "__type": "AttackSlotData"
+        }
+      },
+      "spells": []
+    }
+  }
+}

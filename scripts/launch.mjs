@@ -13,7 +13,7 @@ try{
   const current=await status();if(current?.name==='yasuo-lane-coach'){console.log(`已在运行，打开 ${address}`);openBrowser();process.exit(0);}if(current)throw new Error('3210 端口已由其他服务占用，请先关闭那个服务。');
   const [major,minor]=process.versions.node.split('.').map(Number);
   if(major<22||(major===22&&minor<12))throw new Error('需要 Node.js 22.12 或以上版本，推荐 Node.js 24 LTS。');
-  if(!existsSync('node_modules/tsx')){console.log('首次启动：安装依赖，需要联网…');await runNpm(['ci','--no-audit','--no-fund']);}
+  if(!existsSync('node_modules/tsx')||!existsSync('node_modules/undici')){console.log('安装所需依赖，需要联网…');await runNpm(['ci','--no-audit','--no-fund']);}
   console.log('检查并构建网页…');await runNpm(['run','build']);
   const child=spawn(process.execPath,['--import','tsx','server/index.ts'],{cwd:root,stdio:'inherit',windowsHide:true});
   child.on('error',e=>{console.error(e.message);process.exitCode=1;});

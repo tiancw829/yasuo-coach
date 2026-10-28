@@ -1,0 +1,288 @@
+{
+  "page": {
+    "championId": 157,
+    "championArguments": {
+      "regionId": 0,
+      "tierId": 2,
+      "laneId": 2,
+      "versionId": 158
+    },
+    "champSummary": [
+      {
+        "championId": 157,
+        "regionId": 0,
+        "tierId": 2,
+        "laneId": 2,
+        "versionId": 158,
+        "buildTypeId": 0,
+        "count": 17365,
+        "winRate": 49.49,
+        "mainRune1": 8008,
+        "mainRune2": 9101,
+        "mainRune3": 9104,
+        "mainRune4": 8299,
+        "subRune1": 8444,
+        "subRune2": 8451,
+        "statperk1Id": 5005,
+        "statperk2Id": 5008,
+        "statperk3Id": 5001,
+        "startingItemIdList": [
+          [
+            1086
+          ],
+          [
+            2003,
+            2003
+          ]
+        ],
+        "shoesId": 3006,
+        "coreItemIdList": [
+          6673,
+          3031,
+          6333,
+          3026
+        ],
+        "skillLv15List": [
+          "Q",
+          "E",
+          "W",
+          "Q",
+          "Q",
+          "R",
+          "Q",
+          "E",
+          "Q",
+          "E",
+          "R",
+          "E",
+          "E",
+          "W",
+          "W"
+        ],
+        "skillMasterList": [
+          "Q",
+          "E",
+          "W"
+        ],
+        "runeTotalWinrate": 46.29,
+        "runeTotalPickrate": 34.02,
+        "runeTotalCount": 5308,
+        "startingWinrate": 49.96,
+        "startingPickrate": 90.64,
+        "startingCount": 15609,
+        "counterChampionIdList": [
+          127,
+          90,
+          163,
+          58,
+          711
+        ],
+        "counterWinrateList": [
+          41.62,
+          42.21,
+          42.41,
+          43.79,
+          43.8
+        ],
+        "counterCountList": [
+          692,
+          289,
+          290,
+          338,
+          532
+        ],
+        "counterEasyChampionIdList": [
+          517,
+          131,
+          91,
+          910,
+          134
+        ],
+        "counterEasyWinrateList": [
+          56.67,
+          56.04,
+          55.86,
+          54.55,
+          54
+        ],
+        "counterEasyCountList": [
+          824,
+          273,
+          367,
+          308,
+          587
+        ],
+        "top1ThreeCoreIdList": [
+          6673,
+          3031,
+          6333
+        ],
+        "top1ThreeCorePickrate": 31.96,
+        "top1ThreeCoreWinrate": 58.19,
+        "top1ThreeCoreCount": 2813,
+        "top2ThreeCoreIdList": [
+          3153,
+          6673,
+          3031
+        ],
+        "top2ThreeCorePickrate": 15.67,
+        "top2ThreeCoreWinrate": 55.04,
+        "top2ThreeCoreCount": 1379,
+        "top3ThreeCoreIdList": [
+          3153,
+          6673,
+          3033
+        ],
+        "top3ThreeCorePickrate": 6,
+        "top3ThreeCoreWinrate": 53.22,
+        "top3ThreeCoreCount": 528
+      },
+      {
+        "championId": 157,
+        "regionId": 0,
+        "tierId": 2,
+        "laneId": 2,
+        "versionId": 158,
+        "buildTypeId": 1,
+        "count": 17365,
+        "winRate": 49.49,
+        "mainRune1": 8008,
+        "mainRune2": 9111,
+        "mainRune3": 9104,
+        "mainRune4": 8299,
+        "subRune1": 8401,
+        "subRune2": 8473,
+        "statperk1Id": 5005,
+        "statperk2Id": 5008,
+        "statperk3Id": 5011,
+        "startingItemIdList": [
+          [
+            1086
+          ],
+          [
+            2003,
+            2003
+          ]
+        ],
+        "shoesId": 3006,
+        "coreItemIdList": [
+          6673,
+          3031,
+          6333,
+          3026
+        ],
+        "skillLv15List": [
+          "Q",
+          "E",
+          "W",
+          "Q",
+          "Q",
+          "R",
+          "Q",
+          "E",
+          "Q",
+          "E",
+          "R",
+          "E",
+          "E",
+          "W",
+          "W"
+        ],
+        "skillMasterList": [
+          "Q",
+          "E",
+          "W"
+        ],
+        "runeTotalWinrate": 54.17,
+        "runeTotalPickrate": 19.45,
+        "runeTotalCount": 3035,
+        "startingWinrate": 49.96,
+        "startingPickrate": 90.64,
+        "startingCount": 15609,
+        "counterChampionIdList": [
+          127,
+          90,
+          163,
+          58,
+          711
+        ],
+        "counterWinrateList": [
+          41.62,
+          42.21,
+          42.41,
+          43.79,
+          43.8
+        ],
+        "counterCountList": [
+          692,
+          289,
+          290,
+          338,
+          532
+        ],
+        "counterEasyChampionIdList": [
+          517,
+          131,
+          91,
+          910,
+          134
+        ],
+        "counterEasyWinrateList": [
+          56.67,
+          56.04,
+          55.86,
+          54.55,
+          54
+        ],
+        "counterEasyCountList": [
+          824,
+          273,
+          367,
+          308,
+          587
+        ],
+        "top1ThreeCoreIdList": [
+          6673,
+          3031,
+          6333
+        ],
+        "top1ThreeCorePickrate": 31.96,
+        "top1ThreeCoreWinrate": 58.19,
+        "top1ThreeCoreCount": 2813,
+        "top2ThreeCoreIdList": [
+          3153,
+          6673,
+          3031
+        ],
+        "top2ThreeCorePickrate": 15.67,
+        "top2ThreeCoreWinrate": 55.04,
+        "top2ThreeCoreCount": 1379,
+        "top3ThreeCoreIdList": [
+          3153,
+          6673,
+          3033
+        ],
+        "top3ThreeCorePickrate": 6,
+        "top3ThreeCoreWinrate": 53.22,
+        "top3ThreeCoreCount": 528
+      }
+    ]
+  },
+  "versions": [
+    {
+      "versionId": 158,
+      "description": "26.21",
+      "patchDate": "2026-10-21"
+    },
+    {
+      "versionId": 157,
+      "description": "26.20",
+      "patchDate": "2026-10-07"
+    },
+    {
+      "versionId": 156,
+      "description": "26.19",
+      "patchDate": "2026-09-23"
+    }
+  ]
+}

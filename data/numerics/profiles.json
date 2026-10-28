@@ -1,0 +1,652 @@
+{
+  "version": "16.21.1",
+  "revision": "components-16.21-v1",
+  "profiles": {
+    "Ahri": {
+      "limit": "阿狸完整多段连招请使用上方对拼计算器；此处只展示可单独核对的分项。",
+      "components": [
+        {
+          "spell": "AhriQ",
+          "calc": "TotalDamage",
+          "label": "Q 去程",
+          "type": "magic",
+          "note": "一段；回程另列真实伤害"
+        },
+        {
+          "spell": "AhriQ",
+          "calc": "TotalDamage",
+          "label": "Q 回程",
+          "type": "true",
+          "note": "与去程分别命中"
+        }
+      ]
+    },
+    "Zed": {
+      "limit": "未纳入 R 记录／结算、低血被动和影子重复 Q；这些字段已随资料提供，不能把分项之和当全技能伤害。",
+      "components": [
+        {
+          "spell": "ZedQ",
+          "calc": "TotalDamage",
+          "label": "Q 首个目标",
+          "type": "physical",
+          "note": "一枚手里剑直接命中；未计算穿透和影子重复命中衰减"
+        },
+        {
+          "spell": "ZedE",
+          "calc": "TotalDamage",
+          "label": "E 一次",
+          "type": "physical",
+          "note": "多个影子 E 不自动叠加伤害"
+        }
+      ]
+    },
+    "Yone": {
+      "limit": "W 伤害字段与其他百分比字段并存，暂不自动采用 WDamage；未纳入 E 回溯、护盾、被动双刀。",
+      "components": [
+        {
+          "spell": "YoneQ",
+          "calc": "QDamage",
+          "label": "Q 一次",
+          "type": "physical",
+          "note": "不暴击，不计被动第二刀"
+        },
+        {
+          "spell": "YoneR",
+          "calc": "TooltipDamage",
+          "label": "R 物理部分",
+          "type": "physical",
+          "note": "R 总伤害的一半"
+        },
+        {
+          "spell": "YoneR",
+          "calc": "TooltipDamage",
+          "label": "R 魔法部分",
+          "type": "magic",
+          "note": "同一次 R 的另一半"
+        }
+      ]
+    },
+    "Akali": {
+      "limit": "未纳入强化普攻、被动移速、R2 动态斩杀增幅；能量和命中条件不做时间轴模拟。",
+      "components": [
+        {
+          "spell": "AkaliQ",
+          "calc": "Damage",
+          "label": "Q 一次",
+          "type": "magic",
+          "note": "含总 AD 与 AP 加成"
+        },
+        {
+          "spell": "AkaliE",
+          "calc": "E1Damage",
+          "label": "E 第一段",
+          "type": "magic",
+          "note": "占技能总伤害的 30%"
+        },
+        {
+          "spell": "AkaliE",
+          "calc": "E2DamageCalc",
+          "label": "E 第二段",
+          "type": "magic",
+          "note": "占技能总伤害的 70%；必须满足追击条件"
+        },
+        {
+          "spell": "AkaliR",
+          "calc": "Cast1Damage",
+          "label": "R 第一段",
+          "type": "magic",
+          "note": "含额外 AD 与 AP 加成"
+        },
+        {
+          "spell": "AkaliR",
+          "calc": "Cast2DamageMin",
+          "label": "R 第二段最低值",
+          "type": "magic",
+          "note": "未加入目标已损失生命带来的斩杀增幅"
+        }
+      ]
+    },
+    "Fizz": {
+      "limit": "未纳入 W 流血／后续附伤、被动减伤及中／大鲨鱼档；不汇总为完整连招。",
+      "components": [
+        {
+          "spell": "FizzQ",
+          "calc": "QDamage",
+          "label": "Q 魔法部分",
+          "type": "magic",
+          "note": "Q 另有 100% 总 AD 物理部分，不能遗漏或重复计算普攻"
+        },
+        {
+          "spell": "FizzQ",
+          "calc": "TotalDamage",
+          "label": "Q 物理部分",
+          "type": "physical",
+          "note": "附带攻击物理部分；不在普通普攻次数中重复加入"
+        },
+        {
+          "spell": "FizzW",
+          "calc": "ActiveDamage",
+          "label": "W 主动额外伤害",
+          "type": "magic",
+          "note": "不含普攻本体和持续流血"
+        },
+        {
+          "spell": "FizzE",
+          "calc": "EDamage",
+          "label": "E 一次",
+          "type": "magic",
+          "note": "不把二段 E 再加一遍"
+        },
+        {
+          "spell": "FizzR",
+          "calc": "SmallSharkDamage",
+          "label": "R 小鲨鱼",
+          "type": "magic",
+          "note": "采用最短距离档；不是大鲨鱼伤害"
+        }
+      ]
+    },
+    "Annie": {
+      "limit": "未纳入 E 护盾与反伤、提伯斯普攻／灼烧和眩晕时序。",
+      "components": [
+        {
+          "spell": "AnnieQ",
+          "calc": "TotalDamage",
+          "label": "Q 一次",
+          "type": "magic",
+          "note": "一次命中"
+        },
+        {
+          "spell": "AnnieW",
+          "calc": "TotalDamage",
+          "label": "W 一次",
+          "type": "magic",
+          "note": "一次命中"
+        },
+        {
+          "spell": "AnnieR",
+          "calc": "InitialBurstDamage",
+          "label": "R 召唤爆发",
+          "type": "magic",
+          "note": "仅提伯斯落地伤害"
+        }
+      ]
+    },
+    "Lux": {
+      "limit": "未纳入被动触发与刷新、W 来回护盾。",
+      "components": [
+        {
+          "spell": "LuxLightBinding",
+          "calc": "TotalDamageTT",
+          "label": "Q 一次",
+          "type": "magic",
+          "note": "一次命中"
+        },
+        {
+          "spell": "LuxLightStrikeKugel",
+          "calc": "TotalDamageTT",
+          "label": "E 引爆",
+          "type": "magic",
+          "note": "仅一次引爆"
+        },
+        {
+          "spell": "LuxR",
+          "calc": "TotalDamage",
+          "label": "R 一次",
+          "type": "magic",
+          "note": "不额外推断被动标记的触发"
+        }
+      ]
+    },
+    "Syndra": {
+      "limit": "被动进化、R 球数和斩杀不自动处理；R 行绝不能当作全大招伤害。",
+      "components": [
+        {
+          "spell": "SyndraQ",
+          "calc": "TotalDamage",
+          "label": "Q 一次",
+          "type": "magic",
+          "note": "一次球体爆发"
+        },
+        {
+          "spell": "SyndraW",
+          "calc": "ThrowDamage",
+          "label": "W 投掷",
+          "type": "magic",
+          "note": "未计被动进化的额外真实伤害"
+        },
+        {
+          "spell": "SyndraE",
+          "calc": "TotalDamage",
+          "label": "E 一次",
+          "type": "magic",
+          "note": "不按多个球重复算 E"
+        },
+        {
+          "spell": "SyndraR",
+          "calc": "DamageCalc",
+          "label": "R 每颗法球",
+          "type": "magic",
+          "note": "这是每球伤害，不是整个 R；球数与被动斩杀另外判断"
+        }
+      ]
+    },
+    "Orianna": {
+      "limit": "未纳入被动普攻叠层、Q 途经单位衰减和 E 护盾／抗性增益。",
+      "components": [
+        {
+          "spell": "OrianaIzunaCommand",
+          "calc": "TotalDamageTooltip",
+          "label": "Q 未衰减",
+          "type": "magic",
+          "note": "未穿过其他单位的伤害"
+        },
+        {
+          "spell": "OrianaDissonanceCommand",
+          "calc": "TotalDamage",
+          "label": "W 一次",
+          "type": "magic",
+          "note": "一次命中"
+        },
+        {
+          "spell": "OrianaRedactCommand",
+          "calc": "TotalDamageTooltip",
+          "label": "E 穿过目标",
+          "type": "magic",
+          "note": "需球回程穿过目标"
+        },
+        {
+          "spell": "OrianaDetonateCommand",
+          "calc": "TotalDamage",
+          "label": "R 一次",
+          "type": "magic",
+          "note": "一次命中"
+        }
+      ]
+    },
+    "Viktor": {
+      "limit": "进化余震仅作条件项；未自动计 R 持续次数、Q 护盾、海克斯进化进度。",
+      "components": [
+        {
+          "spell": "ViktorQ",
+          "calc": "TotalMissileDamage",
+          "label": "Q 飞弹",
+          "type": "magic",
+          "note": "不包含强化攻击"
+        },
+        {
+          "spell": "ViktorQ",
+          "calc": "AttackTotalDMG",
+          "label": "Q 强化普攻整体",
+          "type": "magic",
+          "note": "包含 100% 总 AD；替代这次普通普攻，不能再重复加物理普攻"
+        },
+        {
+          "spell": "ViktorE",
+          "calc": "LaserDamage",
+          "label": "E 激光",
+          "type": "magic",
+          "note": "基础段"
+        },
+        {
+          "spell": "ViktorE",
+          "calc": "AftershockDamage",
+          "label": "进化 E 余震",
+          "type": "magic",
+          "note": "只有已进化 E 且余震命中才算；不是默认必有"
+        },
+        {
+          "spell": "ViktorR",
+          "calc": "InitialBurstDamage",
+          "label": "R 初始爆发",
+          "type": "magic",
+          "note": "不含后续持续伤害"
+        }
+      ]
+    },
+    "Leblanc": {
+      "limit": "R 采用复制 Q 的条件分支，标记与锁链需要各自触发；不预测连招时序。",
+      "components": [
+        {
+          "spell": "LeblancQ",
+          "calc": "Damage",
+          "label": "Q 初次命中",
+          "type": "magic",
+          "note": "标记爆发另列"
+        },
+        {
+          "spell": "LeblancQ",
+          "calc": "MarkDamage",
+          "label": "Q 标记触发",
+          "type": "magic",
+          "note": "需要后续伤害技能触发"
+        },
+        {
+          "spell": "LeblancW",
+          "calc": "TotalDamage",
+          "label": "W 一次",
+          "type": "magic",
+          "note": "一次命中"
+        },
+        {
+          "spell": "LeblancE",
+          "calc": "InitialDamage",
+          "label": "E 第一段",
+          "type": "magic",
+          "note": "命中锁链"
+        },
+        {
+          "spell": "LeblancE",
+          "calc": "DelayedDamage",
+          "label": "E 二段触发",
+          "type": "magic",
+          "note": "锁链未断开"
+        },
+        {
+          "spell": "LeblancR",
+          "calc": "RQ1Damage",
+          "label": "RQ 初次命中",
+          "type": "magic",
+          "note": "仅选择复制 Q 的分支"
+        },
+        {
+          "spell": "LeblancR",
+          "calc": "RQ2Damage",
+          "label": "RQ 标记触发",
+          "type": "magic",
+          "note": "不能同时把 RW/RE 再加入一套"
+        }
+      ]
+    },
+    "Sylas": {
+      "limit": "未纳入被动强化攻击、W 治疗及偷取的亚索 R。",
+      "components": [
+        {
+          "spell": "SylasQ",
+          "calc": "Damage",
+          "label": "Q 锁链",
+          "type": "magic",
+          "note": "爆炸另列"
+        },
+        {
+          "spell": "SylasQ",
+          "calc": "ExplosionDamage",
+          "label": "Q 爆炸",
+          "type": "magic",
+          "note": "延迟爆炸命中"
+        },
+        {
+          "spell": "SylasW",
+          "calc": "MinDamage",
+          "label": "W 伤害",
+          "type": "magic",
+          "note": "治疗不在伤害中抵扣"
+        },
+        {
+          "spell": "SylasE",
+          "calc": "Damage",
+          "label": "E 第二段",
+          "type": "magic",
+          "note": "第一段位移不造成这项伤害"
+        }
+      ]
+    },
+    "Galio": {
+      "limit": "未纳入风场百分比伤害、被动重击、满蓄力 W、护盾和减伤；R 需要合法友方目标。",
+      "components": [
+        {
+          "spell": "GalioQ",
+          "calc": "QMissileDamage",
+          "label": "Q 风弹",
+          "type": "magic",
+          "note": "不包含风场持续伤害"
+        },
+        {
+          "spell": "GalioW",
+          "calc": "MinTotalDamage",
+          "label": "W 最短蓄力",
+          "type": "magic",
+          "note": "不是满蓄力"
+        },
+        {
+          "spell": "GalioE",
+          "calc": "TotalDamage",
+          "label": "E 撞击",
+          "type": "magic",
+          "note": "英雄伤害"
+        },
+        {
+          "spell": "GalioR",
+          "calc": "TotalDamage",
+          "label": "R 落地",
+          "type": "magic",
+          "note": "含额外魔抗加成；对线中不默认可以直接选中敌人施放"
+        }
+      ]
+    },
+    "Irelia": {
+      "limit": "未纳入满被动附伤／攻速、Q 多次重置、W 减伤和蓄力、R 墙体伤害与治疗。",
+      "components": [
+        {
+          "spell": "IreliaQ",
+          "calc": "ChampionDamage",
+          "label": "Q 对英雄",
+          "type": "physical",
+          "note": "一段；不含被动附伤"
+        },
+        {
+          "spell": "IreliaW",
+          "calc": "MinDamageCalc",
+          "label": "W 最短蓄力",
+          "type": "physical",
+          "note": "不是最大蓄力伤害"
+        },
+        {
+          "spell": "IreliaE",
+          "calc": "TotalDamage",
+          "label": "E 一次",
+          "type": "magic",
+          "note": "需双刃命中"
+        },
+        {
+          "spell": "IreliaR",
+          "calc": "MissileDamage",
+          "label": "R 飞刃命中",
+          "type": "magic",
+          "note": "不含穿墙伤害"
+        }
+      ]
+    },
+    "Talon": {
+      "limit": "未纳入被动三层流血、近战 Q 增幅、R 第二程与墙体路径。",
+      "components": [
+        {
+          "spell": "TalonQ",
+          "calc": "LeapDamage",
+          "label": "Q 远程突进",
+          "type": "physical",
+          "note": "不是近身强化 Q"
+        },
+        {
+          "spell": "TalonW",
+          "calc": "TotalInitialDamage",
+          "label": "W 去程",
+          "type": "physical",
+          "note": "返程另列"
+        },
+        {
+          "spell": "TalonW",
+          "calc": "TotalReturnDamage",
+          "label": "W 返程",
+          "type": "physical",
+          "note": "二段减速不保证命中"
+        },
+        {
+          "spell": "TalonR",
+          "calc": "Damage",
+          "label": "R 单程",
+          "type": "physical",
+          "note": "只是一程；去回是否命中需分别判断"
+        }
+      ]
+    },
+    "Anivia": {
+      "limit": "R 文件计算节点命名与 tick 单位存在歧义，暂不自动算 R；未纳入被动复活与 R 持续时间。",
+      "components": [
+        {
+          "spell": "FlashFrost",
+          "calc": "TotalPassthroughDamage",
+          "label": "Q 穿过",
+          "type": "magic",
+          "note": "爆炸另列"
+        },
+        {
+          "spell": "FlashFrost",
+          "calc": "TotalExplosionDamage",
+          "label": "Q 爆炸",
+          "type": "magic",
+          "note": "需要爆炸命中"
+        },
+        {
+          "spell": "Frostbite",
+          "calc": "TotalDamage",
+          "label": "E 未强化",
+          "type": "magic",
+          "note": "未触发冰冻条件的基础值"
+        },
+        {
+          "spell": "Frostbite",
+          "calc": "EmpoweredDamage",
+          "label": "E 强化",
+          "type": "magic",
+          "note": "满足条件时替代未强化 E，不能两行相加"
+        }
+      ]
+    },
+    "Cassiopeia": {
+      "limit": "不自动指定 E 次数、W 停留时间或法力是否足够，不计算治疗。",
+      "components": [
+        {
+          "spell": "CassiopeiaQ",
+          "calc": "TooltipTotalDamage",
+          "label": "Q 完整持续伤害",
+          "type": "magic",
+          "note": "全部持续伤害生效才达到"
+        },
+        {
+          "spell": "CassiopeiaW",
+          "calc": "DamagePerSecond",
+          "label": "W 每秒",
+          "type": "magic",
+          "note": "单位为每秒；不是整片毒池总伤害"
+        },
+        {
+          "spell": "CassiopeiaE",
+          "calc": "BasicDamage",
+          "label": "E 基础部分",
+          "type": "magic",
+          "note": "按英雄等级成长"
+        },
+        {
+          "spell": "CassiopeiaE",
+          "calc": "BonusPoisonedDamage",
+          "label": "E 中毒额外部分",
+          "type": "magic",
+          "note": "目标中毒时叠加到基础 E；没有中毒不能加"
+        },
+        {
+          "spell": "CassiopeiaR",
+          "calc": "RDamage",
+          "label": "R 一次",
+          "type": "magic",
+          "note": "面向影响控制，不改变此项基础伤害"
+        }
+      ]
+    },
+    "Malzahar": {
+      "limit": "未纳入 W 虚灵、R 地面池、E 刷新和被动减伤；压制不能被风墙阻挡。",
+      "components": [
+        {
+          "spell": "MalzaharQ",
+          "calc": "TotalDamageTooltip",
+          "label": "Q 一次",
+          "type": "magic",
+          "note": "一次命中"
+        },
+        {
+          "spell": "MalzaharE",
+          "calc": "TotalDamage",
+          "label": "E 完整持续伤害",
+          "type": "magic",
+          "note": "完整持续，不是单跳"
+        },
+        {
+          "spell": "MalzaharR",
+          "calc": "TotalDamageTooltip",
+          "label": "R 完整引导光束",
+          "type": "magic",
+          "note": "2.5 秒完整引导；不含地面区域百分比伤害"
+        }
+      ]
+    },
+    "Veigar": {
+      "limit": "被动 AP 请填入额外法强；不自动算 R 斩杀增幅和 E 控制命中。",
+      "components": [
+        {
+          "spell": "VeigarBalefulStrike",
+          "calc": "TotalDamage",
+          "label": "Q 一次",
+          "type": "magic",
+          "note": "AP 中请自行加入被动叠层"
+        },
+        {
+          "spell": "VeigarDarkMatter",
+          "calc": "TotalDamage",
+          "label": "W 一次",
+          "type": "magic",
+          "note": "延迟命中"
+        },
+        {
+          "spell": "VeigarR",
+          "calc": "MinDamage",
+          "label": "R 最低伤害",
+          "type": "magic",
+          "note": "目标高血量条件；未加入已损失生命增幅"
+        }
+      ]
+    },
+    "Aurora": {
+      "limit": "未纳入被动百分比伤害／治疗、Q2 斩杀增幅和边界触发。",
+      "components": [
+        {
+          "spell": "AuroraQ",
+          "calc": "Damage",
+          "label": "Q 去程",
+          "type": "magic",
+          "note": "返程另列"
+        },
+        {
+          "spell": "AuroraQ",
+          "calc": "{f7c018c7}",
+          "label": "Q 回程最低值",
+          "type": "magic",
+          "note": "未加入目标已损失生命增幅"
+        },
+        {
+          "spell": "AuroraE",
+          "calc": "DamageCalc",
+          "label": "E 一次",
+          "type": "magic",
+          "note": "一次命中"
+        },
+        {
+          "spell": "AuroraR",
+          "calc": "DamageCalc",
+          "label": "R 初始命中",
+          "type": "magic",
+          "note": "不推测额外边界触发伤害"
+        }
+      ]
+    }
+  }
+}
